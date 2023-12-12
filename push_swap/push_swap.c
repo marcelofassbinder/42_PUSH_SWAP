@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:06:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/09 18:30:16 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/12 20:03:11 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2)
+	if (argc < 2 || !check_input(argc, argv))
 	{
 		ft_printf("Error\n");
 		exit(0);
 	}
-	else
-		check_input(argc, argv);
 	
 	
 

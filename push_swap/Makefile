@@ -1,4 +1,4 @@
-CFILES = push_swap.c
+CFILES = push_swap.c check_input.c
 OBJS = ${CFILES:.c=.o}
 RM = rm -rf
 CC = cc
