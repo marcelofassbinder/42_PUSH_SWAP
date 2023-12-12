@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/09 18:26:45 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:33:49 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_stack
 	struct s_stack 	*prev;
 	struct s_stack 	*next;
 }					t_stack;
+int check_input(int argc, char **argv);
+
 
 
 #endif
