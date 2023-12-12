@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 14:06:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/12 22:46:40 by mfassbin         ###   ########.fr       */
+/*   Created: 2023/12/12 22:24:03 by mfassbin          #+#    #+#             */
+/*   Updated: 2023/12/12 22:27:52 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void init_stack(t_stack **a, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	long	n;
+	int		i;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == 0))
-		return(0);
-	if (!check_input(argc, argv))
-	{
-		ft_printf("Error\n");
-		exit(0);
-	}
-	//init_stack(&a, argv);
+	i = 0;
+	while(argv[i])
 }
