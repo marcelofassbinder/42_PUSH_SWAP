@@ -1,8 +1,8 @@
-CFILES = main.c check_input.c init_stack.c stack_utils.c
+CFILES = main.c check_input.c init_stack.c stack_utils.c swap.c rotate.c
 OBJS = ${CFILES:.c=.o}
 RM = rm -rf
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 FTPRINTFA = ./ft_printf/libftprintf.a
 FTPRINTFD = ./ft_printf
@@ -10,7 +10,7 @@ FTPRINTFD = ./ft_printf
 all: $(NAME)
 
 $(NAME): $(OBJS) $(FTPRINTFA) 
-	$(CC) -g $(CFLAGS) $(OBJS) $(FTPRINTFA) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(FTPRINTFA) -o $(NAME)
 
 $(FTPRINTFA): $(FTPRINTFD)
 	make -C $(FTPRINTFD)
