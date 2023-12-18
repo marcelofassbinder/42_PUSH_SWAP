@@ -6,11 +6,27 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:33:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/17 21:40:49 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:37:08 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_stack_node	*find_biggest(t_stack_node **stack)
+{
+	t_stack_node	*big;
+	t_stack_node	*tmp;
+
+	tmp = *stack;
+	big = tmp;
+	while(tmp->next != NULL)
+	{
+		if (tmp->next->number > tmp->number && tmp->next->number > big->number)
+			big->number = tmp->next->number;
+		tmp = tmp->next;
+	}
+	return(big);
+}
 
 t_stack_node	*find_last_node(t_stack_node *stack)
 {
@@ -58,9 +74,9 @@ int	stack_is_sorted(t_stack_node **stack)
 	t_stack_node	*tmp;
 
 	tmp = *stack;
-	while(tmp)
+	while(tmp->next)
 	{
-		if (tmp->next && tmp->number > tmp->next->number)
+		if (tmp->number > tmp->next->number)
 			return (0);
 		tmp = tmp->next;
 	}

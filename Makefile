@@ -1,4 +1,4 @@
-CFILES = main.c check_input.c init_stack.c stack_utils.c swap.c rotate.c
+CFILES = main.c check_input.c init_stack.c stack_utils.c swap.c rotate_rr.c rotate_r.c sort_three.c
 OBJS = ${CFILES:.c=.o}
 RM = rm -rf
 CC = cc
