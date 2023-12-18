@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:44:18 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/17 20:29:34 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:41:39 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	check_input(int argc, char **argv)
 	else
 		input = argv + 1;
 	i = 0;
-	if (!input[0])
-		return (0);
 	while (input[i])
 	{
+		if (input[i][0] == '\0')
+			return(0);
 		n = ft_atoi(input[i]);
 		if (n > INT_MAX || n < INT_MIN || 
 			!check_double(input, n) || !check_digit(input[i]))
