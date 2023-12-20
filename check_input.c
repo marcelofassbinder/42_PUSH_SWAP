@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:44:18 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/18 17:41:39 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:00:52 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_digit(char *str)
 {
 	while (*str)
 	{
-		if (!ft_isdigit(*str))
+		if (!ft_isdigit(*str) && *str != '-' && *str != '+')
 			return (0);
 		str++;
 	}
@@ -47,6 +47,7 @@ int	check_input(int argc, char **argv)
 	int			i;
 	long long	n;
 
+	input = argv;
 	if (argc == 2)
 		input = ft_split(argv[1], ' ');
 	else
