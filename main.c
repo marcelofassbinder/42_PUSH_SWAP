@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:06:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/18 18:40:45 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:07:37 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int	main(int argc, char **argv)
 	if (!stack_is_sorted(&a))
 	{
 		if (stack_size(&a) == 2)
-			swap_sa(&a);
-		/* else if (stack_size(&a) == 3)
-			sort_three(&a); */
+			swap_sa(&a, true);
+		else if (stack_size(&a) == 3)
+			sort_three(&a);
 	}
+	print_stack(&a);
 	
 }

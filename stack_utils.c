@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:33:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/18 18:37:08 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:19:41 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_stack_node	*find_biggest(t_stack_node **stack)
 
 	tmp = *stack;
 	big = tmp;
-	while(tmp->next != NULL)
+	while(tmp)
 	{
-		if (tmp->next->number > tmp->number && tmp->next->number > big->number)
-			big->number = tmp->next->number;
+		if (tmp->number > big->number)
+			big = tmp;
 		tmp = tmp->next;
 	}
 	return(big);
