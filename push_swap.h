@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/20 17:07:07 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/20 19:32:39 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int 			check_double(char **input, long n);
 
 //creating and adding nodes
 void			init_stack(t_stack_node **a, char **argv);
-void			append_node(t_stack_node **stack, int number);
+void			append_node(t_stack_node **stack, int number, bool head);
 
 //stack utils
 t_stack_node	*find_last_node(t_stack_node *stack);
@@ -40,6 +40,7 @@ t_stack_node	*find_biggest(t_stack_node **stack);
 void			print_stack(t_stack_node **stack);
 int				stack_size(t_stack_node **stack);
 int				stack_is_sorted(t_stack_node **stack);
+void			free_stack(t_stack_node **stack);
 
 //swap first and second number
 void			swap_sa(t_stack_node **stack_a, bool print);
@@ -55,6 +56,11 @@ void			rotate_rr(t_stack_node **stack_a, t_stack_node **stack_b);
 void			rotate_rra(t_stack_node **stack_a, bool print);
 void			rotate_rrb(t_stack_node **stack_b, bool print);
 void			rotate_rrr(t_stack_node **stack_a, t_stack_node **stack_b);
+
+//push from stack_a to stack_b
+void			push_pb(t_stack_node **stack_a, t_stack_node **stack_b);
+//push from stack_b to stack_a
+void			push_pa(t_stack_node **stack_b, t_stack_node **stack_a);
 
 void			sort_three(t_stack_node **stack);
 
