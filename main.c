@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:06:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/20 19:34:41 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/23 23:36:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,23 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	else
 		argv = argv + 1;
-	if (!check_input(argc, argv))
-		return (ft_printf("Error\n"));
+	if (!check_input(argv))
+		return (free_error(argc, argv, true));
 	init_stack(&a, argv);
-	//init_stack(&b, NULL);
 	ft_printf("stack a: \n");
 	print_stack(&a);
-	ft_printf("push_pb: \n");
-	push_pb(&a, &b);
-	/* if (!stack_is_sorted(&a))
+	if (!stack_is_sorted(&a))
 	{
 		if (stack_size(&a) == 2)
 			swap_sa(&a, true);
 		else if (stack_size(&a) == 3)
 			sort_three(&a);
-	} */
-	ft_printf("stack a: \n");
-	print_stack(&a);
-	ft_printf("stack b: \n");
-	print_stack(&b);
-	ft_printf("push_pb: \n");
-	push_pb(&a, &b);
-	ft_printf("stack a: \n");
-	print_stack(&a);
-	ft_printf("stack b: \n");
-	print_stack(&b);
-	ft_printf("push_pa: \n");
-	push_pa(&b, &a);
+	}
 	ft_printf("stack a: \n");
 	print_stack(&a);
 	ft_printf("stack b: \n");
 	print_stack(&b);
 	free_stack(&a);
 	free_stack(&b);
+	free_error(argc, argv, false);
 }
