@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/20 19:32:39 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:05:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ typedef struct s_stack
 }					t_stack_node;
 
 // verifying args
-int				check_input(int argc, char **argv);
+int				check_input(char **argv);
 int 			check_digit(char *str);
 int 			check_double(char **input, long n);
+int				count_words(const char *s, char c);
 
 //creating and adding nodes
 void			init_stack(t_stack_node **a, char **argv);
@@ -40,7 +41,10 @@ t_stack_node	*find_biggest(t_stack_node **stack);
 void			print_stack(t_stack_node **stack);
 int				stack_size(t_stack_node **stack);
 int				stack_is_sorted(t_stack_node **stack);
+
+//free functions
 void			free_stack(t_stack_node **stack);
+int				free_error(int argc, char **argv, bool print);
 
 //swap first and second number
 void			swap_sa(t_stack_node **stack_a, bool print);
@@ -59,9 +63,12 @@ void			rotate_rrr(t_stack_node **stack_a, t_stack_node **stack_b);
 
 //push from stack_a to stack_b
 void			push_pb(t_stack_node **stack_a, t_stack_node **stack_b);
+
 //push from stack_b to stack_a
 void			push_pa(t_stack_node **stack_b, t_stack_node **stack_a);
 
+//turkey algorithm
+void			algorithm(t_stack_node **stack_a, t_stack_node **stack_b);
 void			sort_three(t_stack_node **stack);
 
 #endif

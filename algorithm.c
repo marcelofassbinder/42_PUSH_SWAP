@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:54:39 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/20 17:59:46 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:07:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,18 @@ void	sort_three(t_stack_node **stack)
 		rotate_rra(stack, true);
 	if (tmp->number > tmp->next->number)
 		swap_sa(stack, true);
+}
+
+t_stack_node	*find_cheapest(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	
+}
+
+void	algorithm(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	push_pb(stack_a, stack_b);
+	push_pb(stack_a, stack_b);
+
+
+	
 }
