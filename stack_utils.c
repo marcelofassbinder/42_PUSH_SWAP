@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:33:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/20 17:19:41 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:30:31 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ void	print_stack(t_stack_node **stack)
 		tmp = *stack;
 		while(tmp)
 		{
-			ft_printf("%i\n", tmp->number);
+			ft_printf("number:%i -- ", tmp->number);
+			ft_printf("index:%i -- ", tmp->index);
+			ft_printf("above med?%i -- ", tmp->above_med);
+			ft_printf("cost to push: %i\n", tmp->cost);
+			if (tmp->target)
+				ft_printf("target node:%i\n", tmp->target->number);
 			tmp = tmp->next;
 		}
 	}

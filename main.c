@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:06:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/23 23:36:44 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/26 20:06:09 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,17 @@ int	main(int argc, char **argv)
 	else
 		argv = argv + 1;
 	if (!check_input(argv))
-		return (free_error(argc, argv, true));
+		return (free_error(argc, argv));
 	init_stack(&a, argv);
-	ft_printf("stack a: \n");
-	print_stack(&a);
 	if (!stack_is_sorted(&a))
 	{
 		if (stack_size(&a) == 2)
 			swap_sa(&a, true);
 		else if (stack_size(&a) == 3)
 			sort_three(&a);
+		else
+			algorithm(&a, &b);
 	}
-	ft_printf("stack a: \n");
-	print_stack(&a);
-	ft_printf("stack b: \n");
-	print_stack(&b);
 	free_stack(&a);
 	free_stack(&b);
-	free_error(argc, argv, false);
 }

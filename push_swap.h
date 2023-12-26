@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/24 00:05:39 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/26 16:49:32 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 // stack node structure 
 typedef struct s_stack
 {	
-	int 			number;
 	struct s_stack 	*prev;
 	struct s_stack 	*next;
+	struct s_stack 	*target;
+	int 			number;
+	int				index;
+	int				cost;
+	bool			above_med;
 }					t_stack_node;
 
 // verifying args
@@ -44,7 +48,7 @@ int				stack_is_sorted(t_stack_node **stack);
 
 //free functions
 void			free_stack(t_stack_node **stack);
-int				free_error(int argc, char **argv, bool print);
+int				free_error(int argc, char **argv);
 
 //swap first and second number
 void			swap_sa(t_stack_node **stack_a, bool print);
@@ -70,5 +74,12 @@ void			push_pa(t_stack_node **stack_b, t_stack_node **stack_a);
 //turkey algorithm
 void			algorithm(t_stack_node **stack_a, t_stack_node **stack_b);
 void			sort_three(t_stack_node **stack);
+
+//update data
+void			update_nodes(t_stack_node **stack_a, t_stack_node **stack_b);
+void			set_index(t_stack_node **stack);
+void			find_target(t_stack_node **stack_a, t_stack_node **stack_b);
+void			set_cost(t_stack_node **stack_a, t_stack_node **stack_b);
+t_stack_node	*find_cheapest(t_stack_node **stack);
 
 #endif

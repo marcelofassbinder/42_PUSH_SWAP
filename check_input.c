@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:44:18 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/23 23:37:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/26 13:49:28 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_input(char **argv)
 	return (1);
 }
 
-int	free_error(int argc, char **argv, bool print)
+int	free_error(int argc, char **argv)
 {
 	int i;
 
@@ -74,8 +74,7 @@ int	free_error(int argc, char **argv, bool print)
 		}
 		free(argv);
 	}
-	if (print)
-		ft_printf("Error\n");
+	ft_printf("Error\n");
 	return (0);
 }
 
