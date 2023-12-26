@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 22:24:03 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/23 23:34:19 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/26 15:34:49 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void init_stack(t_stack_node **stack, char **argv)
 		append_node(stack, (int)n, false);
 		i++;
 	}
+	set_index(stack);
 }
 
 void	free_stack(t_stack_node **stack)
