@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/26 16:49:32 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:10:33 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void			append_node(t_stack_node **stack, int number, bool head);
 //stack utils
 t_stack_node	*find_last_node(t_stack_node *stack);
 t_stack_node	*find_biggest(t_stack_node **stack);
+t_stack_node	*find_low(t_stack_node **stack);
 void			print_stack(t_stack_node **stack);
 int				stack_size(t_stack_node **stack);
 int				stack_is_sorted(t_stack_node **stack);
@@ -73,13 +74,18 @@ void			push_pa(t_stack_node **stack_b, t_stack_node **stack_a);
 
 //turkey algorithm
 void			algorithm(t_stack_node **stack_a, t_stack_node **stack_b);
+void			prep_for_push(t_stack_node **stack, t_stack_node *target, char c);
+void			move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
+void			move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void			sort_three(t_stack_node **stack);
 
 //update data
-void			update_nodes(t_stack_node **stack_a, t_stack_node **stack_b);
+void			update_nodes(t_stack_node **stack_a, t_stack_node **stack_b, char c);
 void			set_index(t_stack_node **stack);
-void			find_target(t_stack_node **stack_a, t_stack_node **stack_b);
+void			find_target_a(t_stack_node **stack_a, t_stack_node **stack_b);
+void			find_target_b(t_stack_node **stack_a, t_stack_node **stack_b);
 void			set_cost(t_stack_node **stack_a, t_stack_node **stack_b);
+void			check_decrease_cost(t_stack_node *tmp, t_stack_node **stack_a, t_stack_node **stack_b);
 t_stack_node	*find_cheapest(t_stack_node **stack);
 
 #endif

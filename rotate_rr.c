@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:01:01 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/26 19:29:49 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:54:46 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 void	rotate_rra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*last;
-	int				final;
 
 	last = find_last_node(*stack_a);
-	final = last->number;
-	while(last->prev)
-	{
-		last->number = last->prev->number;
-		last = last->prev;
-	}
-	last->number = final;
+	last->next = *stack_a;
+	last->prev->next = NULL;
+	last->prev = NULL;
+	(*stack_a)->prev = last;
+	*stack_a = last;
 	if (print)
 		ft_printf("rra\n");
 }
@@ -32,16 +29,13 @@ void	rotate_rra(t_stack_node **stack_a, bool print)
 void	rotate_rrb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*last;
-	int				final;
 
 	last = find_last_node(*stack_b);
-	final = last->number;
-	while(last->prev)
-	{
-		last->number = last->prev->number;
-		last = last->prev;
-	}
-	last->number = final;
+	last->next = *stack_b;
+	last->prev->next = NULL;
+	(*stack_b)->prev = last;
+	*stack_b = last;
+	(*stack_b)->prev = NULL;
 	if (print)
 		ft_printf("rrb\n");
 }
