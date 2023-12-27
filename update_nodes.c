@@ -6,34 +6,39 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:52:34 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/26 16:49:32 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:10:04 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	update_nodes(t_stack_node **stack_a, t_stack_node **stack_b)
+void	update_nodes(t_stack_node **stack_a, t_stack_node **stack_b, char c)
 {
 	set_index(stack_a);
 	set_index(stack_b);
-	find_target(stack_a, stack_b);
+	if (c == 'a')
+		find_target_a(stack_a, stack_b);
+	else
+		find_target_b(stack_a, stack_b);
 	set_cost(stack_a, stack_b);
 }
 
-t_stack_node	*find_cheapest(t_stack_node **stack)
+void	check_decrease_cost(t_stack_node *tmp, t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*cheapest;
-
-	tmp = *stack;
-	cheapest = tmp;
-	while(tmp)
+	if (tmp->above_med && tmp->target->above_med)
 	{
-		if (tmp->cost < cheapest->cost)
-			cheapest = tmp;
-		tmp = tmp->next;
+		if (tmp->index < tmp->target->index)
+			tmp->cost -= tmp->index;
+		else
+			tmp->cost -= tmp->target->index;
 	}
-	return(cheapest);
+	else if (!(tmp->above_med) && !(tmp->target->above_med))
+	{
+		if (stack_size(stack_a) - tmp->index < stack_size(stack_b) - tmp->target->index)
+			tmp->cost -= stack_size(stack_a) - tmp->index;
+		else
+			tmp->cost -= stack_size(stack_b) - tmp->target->index;
+	}
 }
 
 void	set_cost(t_stack_node **stack_a, t_stack_node **stack_b)
@@ -43,13 +48,15 @@ void	set_cost(t_stack_node **stack_a, t_stack_node **stack_b)
 	tmp = *stack_a;
 	while(tmp)
 	{
-		tmp->cost = tmp->index;
+		if (tmp->above_med)
+			tmp->cost = tmp->index;
 		if (!tmp->above_med)
 			tmp->cost = stack_size(stack_a) - tmp->index;
 		if (tmp->target->above_med)
 			tmp->cost+= tmp->target->index;
-		else
+		if (!(tmp->target->above_med))
 			tmp->cost += stack_size(stack_b) - tmp->target->index;
+		check_decrease_cost(tmp, stack_a, stack_b);
 		tmp = tmp->next;
 	}
 }
@@ -75,7 +82,7 @@ void	set_index(t_stack_node **stack)
 	}
 }
 
-void	find_target(t_stack_node **stack_a, t_stack_node **stack_b)
+void	find_target_a(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	t_stack_node 	*tmp_a;
 	t_stack_node 	*tmp_b;
@@ -100,7 +107,6 @@ void	find_target(t_stack_node **stack_a, t_stack_node **stack_b)
 			tmp_a->target = find_biggest(stack_b);
 		else
 			tmp_a->target = target_node;
-		//ft_printf("number: %i, target: %i\n", tmp_a->number, tmp_a->target->number);
 		tmp_a = tmp_a->next;
 	}
 }
