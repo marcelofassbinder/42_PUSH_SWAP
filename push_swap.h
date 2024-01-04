@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/27 17:10:33 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:07:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ typedef struct s_stack
 int				check_input(char **argv);
 int 			check_digit(char *str);
 int 			check_double(char **input, long n);
-int				count_words(const char *s, char c);
 
 //creating and adding nodes
 void			init_stack(t_stack_node **a, char **argv);
 void			append_node(t_stack_node **stack, int number, bool head);
 
 //stack utils
-t_stack_node	*find_last_node(t_stack_node *stack);
+t_stack_node	*find_last_node(t_stack_node **stack);
 t_stack_node	*find_biggest(t_stack_node **stack);
 t_stack_node	*find_low(t_stack_node **stack);
 void			print_stack(t_stack_node **stack);
@@ -49,7 +48,7 @@ int				stack_is_sorted(t_stack_node **stack);
 
 //free functions
 void			free_stack(t_stack_node **stack);
-int				free_error(int argc, char **argv);
+int				free_split(int argc, char **argv, bool error);
 
 //swap first and second number
 void			swap_sa(t_stack_node **stack_a, bool print);
@@ -84,7 +83,8 @@ void			update_nodes(t_stack_node **stack_a, t_stack_node **stack_b, char c);
 void			set_index(t_stack_node **stack);
 void			find_target_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void			find_target_b(t_stack_node **stack_a, t_stack_node **stack_b);
-void			set_cost(t_stack_node **stack_a, t_stack_node **stack_b);
+void			set_cost_a(t_stack_node **stack_a, t_stack_node **stack_b);
+void			set_cost_b(t_stack_node **stack_a, t_stack_node **stack_b);
 void			check_decrease_cost(t_stack_node *tmp, t_stack_node **stack_a, t_stack_node **stack_b);
 t_stack_node	*find_cheapest(t_stack_node **stack);
 

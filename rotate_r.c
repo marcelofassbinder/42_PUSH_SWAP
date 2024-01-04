@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_r.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:35:35 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/27 12:57:03 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:32:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate_ra(t_stack_node **stack_a, bool print)
 
 	if (!(*stack_a) || (*stack_a)->next == NULL)
 		return ;
-	last = find_last_node(*stack_a);
+	last = find_last_node(stack_a);
 	(*stack_a)->prev = last;
 	last->next = (*stack_a);
 	(*stack_a)->next->prev = NULL;
@@ -34,7 +34,7 @@ void	rotate_rb(t_stack_node **stack_b, bool print)
 
 	if (!(*stack_b) || (*stack_b)->next == NULL)
 		return ;
-	last = find_last_node(*stack_b);
+	last = find_last_node(stack_b);
 	(*stack_b)->prev = last;
 	last->next = (*stack_b);
 	(*stack_b)->next->prev = NULL;

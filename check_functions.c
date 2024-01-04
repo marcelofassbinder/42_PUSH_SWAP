@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   check_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:44:18 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/26 13:49:28 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:05:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_input(char **argv)
 	return (1);
 }
 
-int	free_error(int argc, char **argv)
+int	free_split(int argc, char **argv, bool error)
 {
 	int i;
 
@@ -74,12 +74,25 @@ int	free_error(int argc, char **argv)
 		}
 		free(argv);
 	}
-	ft_printf("Error\n");
+	if (error)
+		ft_printf("Error\n");
 	return (0);
 }
 
-/* 
-int main(int argc, char **argv)
+void	check_decrease_cost(t_stack_node *tmp, t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	ft_printf("%i", check_input(argc, argv));
-} */
+	if (tmp->above_med && tmp->target->above_med)
+	{
+		if (tmp->index < tmp->target->index)
+			tmp->cost -= tmp->index;
+		else
+			tmp->cost -= tmp->target->index;
+	}
+	else if (!(tmp->above_med) && !(tmp->target->above_med))
+	{
+		if (stack_size(stack_a) - tmp->index < stack_size(stack_b) - tmp->target->index)
+			tmp->cost -= stack_size(stack_a) - tmp->index;
+		else
+			tmp->cost -= stack_size(stack_b) - tmp->target->index;
+	}
+}

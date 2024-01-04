@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:54:39 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/27 17:12:04 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:25:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,15 @@
 
 void	sort_three(t_stack_node **stack)
 {
-	t_stack_node	*tmp;
-
-	tmp = *stack;
-	if (find_biggest(stack) == *stack)
-		rotate_ra(stack, true);	
-	else if (find_biggest(stack) == (*stack)->next)
-		rotate_rra(stack, true);
-	if ((*stack)->number > (*stack)->next->number)
-		swap_sa(stack, true);
-}
-t_stack_node	*find_cheapest(t_stack_node **stack)
-{
-	t_stack_node	*tmp;
-	t_stack_node	*cheapest;
-
-	tmp = *stack;
-	cheapest = tmp;
-	while(tmp)
+	if (stack_size(stack) == 3)
 	{
-		if (tmp->cost < cheapest->cost)
-			cheapest = tmp;
-		tmp = tmp->next;
+		if (find_biggest(stack) == *stack)
+			rotate_ra(stack, true);	
+		else if (find_biggest(stack) == (*stack)->next)
+			rotate_rra(stack, true);
+		if ((*stack)->number > (*stack)->next->number)
+			swap_sa(stack, true);
 	}
-	return(cheapest);
 }
 
 void	prep_for_push(t_stack_node **stack, t_stack_node *target, char c)
@@ -77,37 +62,54 @@ void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	push_pb(stack_a, stack_b);
 }
 
+void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	t_stack_node	*cheap;
+
+	cheap = find_cheapest(stack_b);
+	prep_for_push(stack_a, cheap->target, 'a');
+	push_pa(stack_b, stack_a);
+}
+
+void	min_to_top(t_stack_node **stack_a)
+{
+	t_stack_node	*min;
+
+	min = find_low(stack_a);
+
+	while(min != *stack_a)
+	{
+		if (min->above_med)
+			rotate_ra(stack_a, true);
+		else
+			rotate_rra(stack_a, true);
+	}
+}
+
 void	algorithm(t_stack_node **stack_a, t_stack_node **stack_b)
 {
+	if (stack_size(stack_a) == 2)
+		swap_sa(stack_a, true);
+	if (stack_size(stack_a) == 3)
+		sort_three(stack_a);
 	if (stack_size(stack_a) > 3)
 		push_pb(stack_a, stack_b);
 	if (stack_size(stack_a) > 3)
 		push_pb(stack_a, stack_b);
-	while(stack_size(stack_a) > 3 && !stack_is_sorted(stack_a))
+	while(stack_size(stack_a) > 3)
 	{
 		update_nodes(stack_a, stack_b, 'a');
-		ft_printf("stack a:\n");
-		print_stack(stack_a);
-		ft_printf("stack b:\n");
-		print_stack(stack_b);
 		move_a_to_b(stack_a, stack_b);
 	}
 	sort_three(stack_a);
-	ft_printf("stack a:\n");
-	print_stack(stack_a);
-	ft_printf("stack b:\n");
-	print_stack(stack_b);
 	while(*stack_b != NULL)
 	{
 		update_nodes(stack_a, stack_b, 'b');
-		ft_printf("stack a:\n");
-		print_stack(stack_a);
-		ft_printf("stack b:\n");
-		print_stack(stack_b);
 		move_b_to_a(stack_a, stack_b);
 	}
-	ft_printf("stack a:\n");
+	min_to_top(stack_a);
+	/* ft_printf("stack a:\n");
 	print_stack(stack_a);
 	ft_printf("stack b:\n");
-	print_stack(stack_b);
+	print_stack(stack_b); */
 }
