@@ -3,62 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:33:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/27 17:43:17 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/12/29 23:01:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack_node	*find_biggest(t_stack_node **stack)
-{
-	t_stack_node	*big;
-	t_stack_node	*tmp;
-
-	tmp = *stack;
-	big = tmp;
-	while(tmp)
-	{
-		if (tmp->number > big->number)
-			big = tmp;
-		tmp = tmp->next;
-	}
-	return(big);
-}
-
-t_stack_node	*find_low(t_stack_node **stack)
-{
-	t_stack_node	*low;
-	t_stack_node	*tmp;
-
-	tmp = *stack;
-	low = tmp;
-	while(tmp)
-	{
-		if (tmp->number < low->number)
-			low = tmp;
-		tmp = tmp->next;
-	}
-	return(low);
-}
-
-t_stack_node	*find_last_node(t_stack_node *stack)
-{
-	if (!stack)
-		return (NULL);
-	while(stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
 
 void	print_stack(t_stack_node **stack)
 {
 	t_stack_node *tmp;
 
 	if (*stack == NULL)
-		ft_printf("NULL");
+		ft_printf("NULL\n");
 	else
 	{
 		tmp = *stack;
