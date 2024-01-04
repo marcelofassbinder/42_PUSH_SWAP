@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:44:18 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 00:05:58 by marvin           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_input(char **argv)
 {
 	int			i;
 	long long	n;
-	
+
 	i = 0;
 	while (argv[i])
 	{
@@ -62,7 +62,7 @@ int	check_input(char **argv)
 
 int	free_split(int argc, char **argv, bool error)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argc == 2)
@@ -79,7 +79,7 @@ int	free_split(int argc, char **argv, bool error)
 	return (0);
 }
 
-void	check_decrease_cost(t_stack_node *tmp, t_stack_node **stack_a, t_stack_node **stack_b)
+void	decrease_cost(t_stack *tmp, t_stack **a, t_stack **b)
 {
 	if (tmp->above_med && tmp->target->above_med)
 	{
@@ -90,9 +90,9 @@ void	check_decrease_cost(t_stack_node *tmp, t_stack_node **stack_a, t_stack_node
 	}
 	else if (!(tmp->above_med) && !(tmp->target->above_med))
 	{
-		if (stack_size(stack_a) - tmp->index < stack_size(stack_b) - tmp->target->index)
-			tmp->cost -= stack_size(stack_a) - tmp->index;
+		if (stack_size(a) - tmp->index < stack_size(b) - tmp->target->index)
+			tmp->cost -= stack_size(a) - tmp->index;
 		else
-			tmp->cost -= stack_size(stack_b) - tmp->target->index;
+			tmp->cost -= stack_size(b) - tmp->target->index;
 	}
 }
