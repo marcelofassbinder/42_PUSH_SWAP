@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	set_cost_a(t_stack_node **stack_a, t_stack_node **stack_b)
+void	set_cost_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node	*tmp;
+	t_stack	*tmp;
 
 	tmp = *stack_a;
 	while(tmp)
@@ -27,14 +27,14 @@ void	set_cost_a(t_stack_node **stack_a, t_stack_node **stack_b)
 			tmp->cost+= tmp->target->index;
 		if (!(tmp->target->above_med))
 			tmp->cost += stack_size(stack_b) - tmp->target->index;
-		check_decrease_cost(tmp, stack_a, stack_b);
+		decrease_cost(tmp, stack_a, stack_b);
 		tmp = tmp->next;
 	}
 }
 
-void	set_cost_b(t_stack_node **stack_a, t_stack_node **stack_b)
+void	set_cost_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node	*tmp;
+	t_stack	*tmp;
 
 	tmp = *stack_b;
 	while(tmp)
@@ -47,15 +47,15 @@ void	set_cost_b(t_stack_node **stack_a, t_stack_node **stack_b)
 			tmp->cost+= tmp->target->index;
 		if (!(tmp->target->above_med))
 			tmp->cost += stack_size(stack_a) - tmp->target->index;
-		check_decrease_cost(tmp, stack_b, stack_a);
+		decrease_cost(tmp, stack_b, stack_a);
 		tmp = tmp->next;
 	}
 	
 }
 
-void	set_index(t_stack_node **stack)
+void	set_index(t_stack **stack)
 {
-	t_stack_node	*tmp;
+	t_stack	*tmp;
 	int				i;
 	int				med;
 

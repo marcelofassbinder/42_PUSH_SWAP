@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_rr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:01:01 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/03 16:51:11 by marvin           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_rra(t_stack_node **stack_a, bool print)
+void	rotate_rra(t_stack **stack_a, bool print)
 {
-	t_stack_node	*last;
+	t_stack	*last;
 
 	last = find_last_node(stack_a);
 	last->next = *stack_a;
@@ -26,9 +26,9 @@ void	rotate_rra(t_stack_node **stack_a, bool print)
 		ft_printf("rra\n");
 }
 
-void	rotate_rrb(t_stack_node **stack_b, bool print)
+void	rotate_rrb(t_stack **stack_b, bool print)
 {
-	t_stack_node	*last;
+	t_stack	*last;
 
 	last = find_last_node(stack_b);
 	last->next = *stack_b;
@@ -40,7 +40,7 @@ void	rotate_rrb(t_stack_node **stack_b, bool print)
 		ft_printf("rrb\n");
 }
 
-void	rotate_rrr(t_stack_node **stack_a, t_stack_node **stack_b)
+void	rotate_rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_rra(stack_a, false);
 	rotate_rrb(stack_b, false);

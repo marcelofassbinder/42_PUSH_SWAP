@@ -6,15 +6,15 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 19:35:17 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 16:14:25 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_sa(t_stack_node **stack_a, bool print)
+void	swap_sa(t_stack **stack_a, bool print)
 {
-	t_stack_node	*second;
+	t_stack	*second;
 
 	second = (*stack_a)->next;
 	if (stack_size(stack_a) >= 3)
@@ -28,9 +28,9 @@ void	swap_sa(t_stack_node **stack_a, bool print)
 		ft_printf("sa\n");
 }
 
-void	swap_sb(t_stack_node **stack_b, bool print)
+void	swap_sb(t_stack **stack_b, bool print)
 {
-	t_stack_node	*second;
+	t_stack	*second;
 
 	second = (*stack_b)->next;
 	if (stack_size(stack_b) >= 3)
@@ -43,7 +43,8 @@ void	swap_sb(t_stack_node **stack_b, bool print)
 	if (print)
 		ft_printf("sb\n");
 }
-void	swap_ss(t_stack_node **stack_a, t_stack_node **stack_b)
+
+void	swap_ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap_sa(stack_a, false);
 	swap_sa(stack_b, false);

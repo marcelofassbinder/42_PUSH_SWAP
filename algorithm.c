@@ -6,13 +6,13 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:54:39 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 16:50:15 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack_node **stack)
+void	sort_three(t_stack **stack)
 {
 	if (stack_size(stack) == 3)
 	{
@@ -25,7 +25,7 @@ void	sort_three(t_stack_node **stack)
 	}
 }
 
-void	prep_for_push(t_stack_node **stack, t_stack_node *target, char c)
+void	prep_for_push(t_stack **stack, t_stack *target, char c)
 {
 	while (*stack != target)
 	{
@@ -46,9 +46,9 @@ void	prep_for_push(t_stack_node **stack, t_stack_node *target, char c)
 	}
 }
 
-void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
+void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node	*cheap;
+	t_stack	*cheap;
 
 	cheap = find_cheapest(stack_a);
 	if (cheap->above_med && cheap->target->above_med)
@@ -62,9 +62,9 @@ void	move_a_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	push_pb(stack_a, stack_b);
 }
 
-void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
+void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node	*cheap;
+	t_stack	*cheap;
 
 	cheap = find_cheapest(stack_b);
 	prep_for_push(stack_b, cheap, 'b');
@@ -72,9 +72,9 @@ void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
 	push_pa(stack_b, stack_a);
 }
 
-void	min_to_top(t_stack_node **stack_a)
+void	min_to_top(t_stack **stack_a)
 {
-	t_stack_node	*min;
+	t_stack	*min;
 
 	min = find_low(stack_a);
 
@@ -87,7 +87,7 @@ void	min_to_top(t_stack_node **stack_a)
 	}
 }
 
-void	algorithm(t_stack_node **stack_a, t_stack_node **stack_b)
+void	algorithm(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_size(stack_a) == 2)
 		swap_sa(stack_a, true);

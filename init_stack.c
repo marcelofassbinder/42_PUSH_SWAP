@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 22:24:03 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 00:32:02 by marvin           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	append_node(t_stack_node **stack, int number, bool head)
+void	append_node(t_stack **stack, int number, bool head)
 {
-	t_stack_node	*new;
-	t_stack_node	*tmp;
+	t_stack	*new;
+	t_stack	*tmp;
 
-	new = malloc(sizeof(t_stack_node));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return ;
 	new->number = number;
@@ -40,13 +40,13 @@ void	append_node(t_stack_node **stack, int number, bool head)
 	}
 }
 
-void init_stack(t_stack_node **stack, char **argv)
+void	init_stack(t_stack **stack, char **argv)
 {
 	long	n;
 	int		i;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		n = ft_atoi(argv[i]);
 		append_node(stack, (int)n, false);
@@ -55,11 +55,11 @@ void init_stack(t_stack_node **stack, char **argv)
 	set_index(stack);
 }
 
-void	free_stack(t_stack_node **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack_node	*old;
+	t_stack	*old;
 
-	while(*stack)
+	while (*stack)
 	{
 		old = *stack;
 		*stack = (*stack)->next;

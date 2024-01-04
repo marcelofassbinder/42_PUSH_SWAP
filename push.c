@@ -6,15 +6,15 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:11:54 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/12/26 15:43:18 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_pb(t_stack_node **stack_a, t_stack_node **stack_b)
+void	push_pb(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node	*old;
+	t_stack	*old;
 
 	if (*stack_a == NULL)
 		return ;
@@ -32,9 +32,10 @@ void	push_pb(t_stack_node **stack_a, t_stack_node **stack_b)
 	free(old);
 	ft_printf("pb\n");
 }
-void	push_pa(t_stack_node **stack_b, t_stack_node **stack_a)
+
+void	push_pa(t_stack **stack_b, t_stack **stack_a)
 {
-	t_stack_node	*old;
+	t_stack	*old;
 
 	if (*stack_b == NULL)
 		return ;
@@ -52,4 +53,3 @@ void	push_pa(t_stack_node **stack_b, t_stack_node **stack_a)
 	free(old);
 	ft_printf("pa\n");
 }
-

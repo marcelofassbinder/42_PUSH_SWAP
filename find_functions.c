@@ -12,62 +12,62 @@
 
 #include "push_swap.h"
 
-t_stack_node	*find_biggest(t_stack_node **stack)
+t_stack	*find_biggest(t_stack **stack)
 {
-	t_stack_node	*big;
-	t_stack_node	*tmp;
+	t_stack	*big;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	big = tmp;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->number > big->number)
 			big = tmp;
 		tmp = tmp->next;
 	}
-	return(big);
+	return (big);
 }
 
-t_stack_node	*find_low(t_stack_node **stack)
+t_stack	*find_low(t_stack **stack)
 {
-	t_stack_node	*low;
-	t_stack_node	*tmp;
+	t_stack	*low;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	low = tmp;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->number < low->number)
 			low = tmp;
 		tmp = tmp->next;
 	}
-	return(low);
+	return (low);
 }
 
-t_stack_node	*find_last_node(t_stack_node **stack)
+t_stack	*find_last_node(t_stack **stack)
 {
-	t_stack_node	*tmp;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	if (tmp == NULL)
 		return (NULL);
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 		tmp = tmp->next;
 	return (tmp);
 }
 
-t_stack_node	*find_cheapest(t_stack_node **stack)
+t_stack	*find_cheapest(t_stack **stack)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*cheapest;
+	t_stack	*tmp;
+	t_stack	*cheapest;
 
 	tmp = *stack;
 	cheapest = tmp;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->cost < cheapest->cost)
 			cheapest = tmp;
 		tmp = tmp->next;
 	}
-	return(cheapest);
+	return (cheapest);
 }

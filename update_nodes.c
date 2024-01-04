@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   update_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:52:34 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/03 17:09:26 by marvin           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:04:27 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	update_nodes(t_stack_node **stack_a, t_stack_node **stack_b, char c)
+void	update_nodes(t_stack **stack_a, t_stack **stack_b, char c)
 {
 	set_index(stack_a);
 	set_index(stack_b);
@@ -28,22 +28,22 @@ void	update_nodes(t_stack_node **stack_a, t_stack_node **stack_b, char c)
 	}
 }
 
-void	find_target_a(t_stack_node **stack_a, t_stack_node **stack_b)
+void	find_target_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node 	*tmp_a;
-	t_stack_node 	*tmp_b;
-	t_stack_node 	*target_node;
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
+	t_stack	*target_node;
 	int				target;
 
 	tmp_a = *stack_a;
-	while(tmp_a)
+	while (tmp_a)
 	{
 		target = INT_MIN;
 		tmp_b = *stack_b;
-		while(tmp_b)
+		while (tmp_b)
 		{
-			if(tmp_b->number < tmp_a->number && tmp_b->number > target)
-			{	
+			if (tmp_b->number < tmp_a->number && tmp_b->number > target)
+			{
 				target = tmp_b->number;
 				target_node = tmp_b;
 			}
@@ -57,22 +57,22 @@ void	find_target_a(t_stack_node **stack_a, t_stack_node **stack_b)
 	}
 }
 
-void	find_target_b(t_stack_node **stack_a, t_stack_node **stack_b)
+void	find_target_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack_node 	*tmp_a;
-	t_stack_node 	*tmp_b;
-	t_stack_node 	*target_node;
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
+	t_stack	*target_node;
 	int				target;
 
 	tmp_b = *stack_b;
-	while(tmp_b)
+	while (tmp_b)
 	{
 		target = INT_MAX;
 		tmp_a = *stack_a;
-		while(tmp_a)
+		while (tmp_a)
 		{
-			if(tmp_a->number > tmp_b->number && tmp_a->number < target)
-			{	
+			if (tmp_a->number > tmp_b->number && tmp_a->number < target)
+			{
 				target = tmp_a->number;
 				target_node = tmp_a;
 			}
