@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:54:39 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 00:25:43 by marvin           ###   ########.fr       */
+/*   Updated: 2024/01/04 16:50:15 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	move_b_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
 	t_stack_node	*cheap;
 
 	cheap = find_cheapest(stack_b);
+	prep_for_push(stack_b, cheap, 'b');
 	prep_for_push(stack_a, cheap->target, 'a');
 	push_pa(stack_b, stack_a);
 }
