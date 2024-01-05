@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:33:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:41:14 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	print_stack(t_stack **stack)
 
 int	stack_size(t_stack **stack)
 {
-	t_stack	*tmp;
-	int				size;
+	t_stack		*tmp;
+	int			size;
 
 	tmp = *stack;
 	size = 0;
