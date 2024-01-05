@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:52:34 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:04:27 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:44:18 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	update_nodes(t_stack **stack_a, t_stack **stack_b, char c)
 
 void	find_target_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
-	t_stack	*target_node;
+	t_stack			*tmp_a;
+	t_stack			*tmp_b;
+	t_stack			*target_node;
 	int				target;
 
 	tmp_a = *stack_a;
@@ -59,10 +59,10 @@ void	find_target_a(t_stack **stack_a, t_stack **stack_b)
 
 void	find_target_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
-	t_stack	*target_node;
-	int				target;
+	t_stack		*tmp_a;
+	t_stack		*tmp_b;
+	t_stack		*target_node;
+	int			target;
 
 	tmp_b = *stack_b;
 	while (tmp_b)

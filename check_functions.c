@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:44:18 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:43:53 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	check_input(char **argv)
 		if (argv[i][0] == '\0')
 			return (0);
 		n = ft_atoi(argv[i]);
-		if (n > INT_MAX || n < INT_MIN || 
-			!check_double(argv, n) || !check_digit(argv[i]))
+		if (n > INT_MAX || n < INT_MIN
+			|| !check_double(argv, n) || !check_digit(argv[i]))
 			return (0);
 		i++;
 	}

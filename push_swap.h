@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:02:40 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:52:26 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "ft_printf/ft_printf.h"
-#include <limits.h>
-#include <stdbool.h>
+# include "ft_printf/ft_printf.h"
+# include <limits.h>
+# include <stdbool.h>
 
 // stack node structure 
 typedef struct s_stack
-{	
-	struct s_stack 	*prev;
-	struct s_stack 	*next;
-	struct s_stack 	*target;
-	int 			number;
+{
+	struct s_stack	*prev;
+	struct s_stack	*next;
+	struct s_stack	*target;
+	int				number;
 	int				index;
 	int				cost;
 	bool			above_med;
@@ -31,20 +31,21 @@ typedef struct s_stack
 
 // verifying args
 int				check_input(char **argv);
-int 			check_digit(char *str);
-int 			check_double(char **input, long n);
+int				check_digit(char *str);
+int				check_double(char **input, long n);
 
 //creating and adding nodes
 void			init_stack(t_stack **a, char **argv);
 void			append_node(t_stack **stack, int number, bool head);
 
 //stack utils
-t_stack	*find_last_node(t_stack **stack);
-t_stack	*find_biggest(t_stack **stack);
-t_stack	*find_low(t_stack **stack);
+t_stack			*find_last_node(t_stack **stack);
+t_stack			*find_biggest(t_stack **stack);
+t_stack			*find_low(t_stack **stack);
 void			print_stack(t_stack **stack);
 int				stack_size(t_stack **stack);
 int				stack_is_sorted(t_stack **stack);
+void			min_to_top(t_stack **stack_a);
 
 //free functions
 void			free_stack(t_stack **stack);

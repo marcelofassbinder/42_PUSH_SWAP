@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 22:24:03 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:48:53 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,18 @@ void	free_stack(t_stack **stack)
 		free(old);
 	}
 	free(*stack);
+}
+
+void	min_to_top(t_stack **stack_a)
+{
+	t_stack	*min;
+
+	min = find_low(stack_a);
+	while (min != *stack_a)
+	{
+		if (min->above_med)
+			rotate_ra(stack_a, true);
+		else
+			rotate_rra(stack_a, true);
+	}
 }
