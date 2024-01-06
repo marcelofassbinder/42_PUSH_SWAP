@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:01:01 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:44:43 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	rotate_rra(t_stack **stack_a, bool print)
 {
 	t_stack	*last;
-
+	if (!(*stack_a) || (*stack_a)->next == NULL)
+		return ;
 	last = find_last_node(stack_a);
 	last->next = *stack_a;
 	last->prev->next = NULL;
@@ -30,6 +31,8 @@ void	rotate_rrb(t_stack **stack_b, bool print)
 {
 	t_stack	*last;
 
+	if (!(*stack_b) || (*stack_b)->next == NULL)
+		return ;
 	last = find_last_node(stack_b);
 	last->next = *stack_b;
 	last->prev->next = NULL;
@@ -40,9 +43,10 @@ void	rotate_rrb(t_stack **stack_b, bool print)
 		ft_printf("rrb\n");
 }
 
-void	rotate_rrr(t_stack **stack_a, t_stack **stack_b)
+void	rotate_rrr(t_stack **stack_a, t_stack **stack_b, bool print)
 {
 	rotate_rra(stack_a, false);
 	rotate_rrb(stack_b, false);
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 }
