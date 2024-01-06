@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 22:24:03 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/05 19:48:53 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/06 15:44:08 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	min_to_top(t_stack **stack_a)
 {
 	t_stack	*min;
 
+	set_index(stack_a);
 	min = find_low(stack_a);
 	while (min != *stack_a)
 	{
