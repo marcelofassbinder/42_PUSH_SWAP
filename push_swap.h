@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:01:50 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/05 19:52:26 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:46:58 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,23 +54,23 @@ int				free_split(int argc, char **argv, bool error);
 //swap first and second number
 void			swap_sa(t_stack **stack_a, bool print);
 void			swap_sb(t_stack **stack_b, bool print);
-void			swap_ss(t_stack **stack_a, t_stack **stack_b);
+void			swap_ss(t_stack **stack_a, t_stack **stack_b, bool print);
 
 //rotate top number to bottom of the stack
 void			rotate_ra(t_stack **stack_a, bool print);
 void			rotate_rb(t_stack **stack_b, bool print);
-void			rotate_rr(t_stack **stack_a, t_stack **stack_b);
+void			rotate_rr(t_stack **stack_a, t_stack **stack_b, bool print);
 
 //rotate bottom number to top of the stack 
 void			rotate_rra(t_stack **stack_a, bool print);
 void			rotate_rrb(t_stack **stack_b, bool print);
-void			rotate_rrr(t_stack **stack_a, t_stack **stack_b);
+void			rotate_rrr(t_stack **stack_a, t_stack **stack_b, bool print);
 
 //push from stack_a to stack_b
-void			push_pb(t_stack **stack_a, t_stack **stack_b);
+void			push_pb(t_stack **stack_a, t_stack **stack_b, bool print);
 
 //push from stack_b to stack_a
-void			push_pa(t_stack **stack_b, t_stack **stack_a);
+void			push_pa(t_stack **stack_b, t_stack **stack_a, bool print);
 
 //turkey algorithm
 void			algorithm(t_stack **stack_a, t_stack **stack_b);

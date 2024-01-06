@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:35:35 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/04 18:01:12 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:45:04 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ void	rotate_rb(t_stack **stack_b, bool print)
 		ft_printf("rb\n");
 }
 
-void	rotate_rr(t_stack **stack_a, t_stack **stack_b)
+void	rotate_rr(t_stack **stack_a, t_stack **stack_b, bool print)
 {
 	rotate_ra(stack_a, false);
 	rotate_rb(stack_b, false);
-	ft_printf("rr\n");
+	if (print)
+		ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:54:39 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/06 15:44:04 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:47:38 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	cheap = find_cheapest(stack_a);
 	if (cheap->above_med && cheap->target->above_med)
 		while (cheap != *stack_a && cheap->target != *stack_b)
-			rotate_rr(stack_a, stack_b);
+			rotate_rr(stack_a, stack_b, true);
 	else if (!(cheap->above_med) && !(cheap->target->above_med))
 		while (cheap != *stack_a && cheap->target != *stack_b)
-			rotate_rrr(stack_a, stack_b);
+			rotate_rrr(stack_a, stack_b, true);
 	prep_for_push(stack_a, cheap, 'a');
 	prep_for_push(stack_b, cheap->target, 'b');
-	push_pb(stack_a, stack_b);
+	push_pb(stack_a, stack_b, true);
 }
 
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
@@ -69,7 +69,7 @@ void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	cheap = find_cheapest(stack_b);
 	prep_for_push(stack_b, cheap, 'b');
 	prep_for_push(stack_a, cheap->target, 'a');
-	push_pa(stack_b, stack_a);
+	push_pa(stack_b, stack_a, true);
 }
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b)
@@ -79,9 +79,9 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 	if (stack_size(stack_a) == 3)
 		sort_three(stack_a);
 	if (stack_size(stack_a) > 3)
-		push_pb(stack_a, stack_b);
+		push_pb(stack_a, stack_b, true);
 	if (stack_size(stack_a) > 3)
-		push_pb(stack_a, stack_b);
+		push_pb(stack_a, stack_b, true);
 	while (stack_size(stack_a) > 3)
 	{
 		update_nodes(stack_a, stack_b, 'a');
