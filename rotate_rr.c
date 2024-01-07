@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:01:01 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/06 19:44:43 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:53:08 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	rotate_rra(t_stack **stack_a, bool print)
 {
 	t_stack	*last;
+
 	if (!(*stack_a) || (*stack_a)->next == NULL)
 		return ;
 	last = find_last_node(stack_a);

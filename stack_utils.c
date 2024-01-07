@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:33:55 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/05 19:41:14 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:50:14 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	stack_is_sorted(t_stack **stack)
 {
 	t_stack	*tmp;
 
+	if (*stack == NULL)
+		return (0);
 	tmp = *stack;
 	while (tmp->next)
 	{
