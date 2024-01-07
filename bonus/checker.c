@@ -6,14 +6,14 @@
 /*   By: mfassbin <mfassbin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:28:48 by mfassbin          #+#    #+#             */
-/*   Updated: 2024/01/06 20:58:44 by mfassbin         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:53:30 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int main(int argc, char **argv)
-{	
+int	main(int argc, char **argv)
+{
 	t_stack	*a;
 	t_stack	*b;
 
