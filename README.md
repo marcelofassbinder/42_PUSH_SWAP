@@ -41,10 +41,47 @@ After performing the provided instructions, if ``stack a`` is sorted, and ``stac
 To install and use push_swap, follow these steps:
 - Clone the repository:
 ```bash
-git clone https://github.com/marcelofassbinder/42_PUSH_SWAP.git
+git clone git@github.com:marcelofassbinder/42_PUSH_SWAP.git
 ```
-- Navigate to the project directory and complie the program:
-- 
+- Navigate to the project directory and run ``make`` to compile the program:
+```bash
+cd 42_PUSH_SWAP
+make
+```
+- Run the program providing a list of integers, for example:
+```bash
+./push_swap 42 24 -6 8 -50
+```
+- The program will output the operations applied to sort the given numbers, for example:
+```bash
+pb
+pb
+rra
+pa
+ra
+pa
+ra
+```
+- To use the checker, do:
+```bash
+make bonus
+```
+- Run the program, passing a list of integers as arguments, for example:
+```bash
+./checker 7 -12 35 42
+```
+- Now, give the instructions you think will sort the numbers, and press Ctrl + D to finish. For example:
+ ```bash
+ pb
+rra
+rra
+pa
+ra
+ra
+ra
+```
+If the operations sorted the stack, checker will print ``OK``. Otherwise ``KO``, and in case of error, ``Error``.
+
 # Grade  <p><img height="30px" src="https://img.shields.io/badge/-125%20%2F%20100-success" /></p>
 
 # Norminette 💂🏻
