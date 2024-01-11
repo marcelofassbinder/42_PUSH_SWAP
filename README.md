@@ -37,6 +37,14 @@ For the bonus section, we were required to develop a program called "checker". S
 
 After performing the provided instructions, if ``stack a`` is sorted, and ``stack b`` is empty, the program displays ``OK`` followed by a new line. In any other scenario, the checker outputs ``KO`` followed by a new line. If an error occurs, the program follows the same behavior as push_swap, printing ``Error`` and a new line.
 
+# Usage 🖥️
+To install and use push_swap, follow these steps:
+- Clone the repository:
+```bash
+git clone https://github.com/marcelofassbinder/42_PUSH_SWAP.git
+```
+- Navigate to the project directory and complie the program:
+- 
 # Grade  <p><img height="30px" src="https://img.shields.io/badge/-125%20%2F%20100-success" /></p>
 
 # Norminette 💂🏻
