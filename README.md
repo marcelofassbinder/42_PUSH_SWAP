@@ -16,7 +16,7 @@ For this I needed to choose for a sort algorithm that optimized the most this wh
 - `rra` (reverse rotate a): Shift down all elements of stack a by 1. The last element becomes the first one.
 - `rrb` (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
 - `rrr` : rra and rrb at the same time.
-#  Walktrough 🧩
+#  Walkthrough 🧩
 - Error Management: The program should only accept parameters within the range of integers from the minimum to the maximum. Anything different from that it will prompt the message ``Error``, followed by a new line, and then finish the program. If no parameters are specified or the numbers provided are already sorted, the program must not display anything and give the prompt back.
 - Creating the stacks: I implemented the stacks using singly linked lists, where each node incorporates the following: the value itself, index, and cost (all integers); previous, next, and target nodes (pointers); and a boolean indicating whether the index was above the median element.
 - Developing the operations: Each operation is meticulously designed to perform specific tasks such as swapping elements, pushing elements between stacks, and rotating elements within a stack. This phase was pivotal to the project serving as a valuable learning experience in effectively managing linked lists and contributing to my understanding of data structure manipulation.
