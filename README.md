@@ -32,3 +32,22 @@ When only three elements are left in ``stack_a``, we begin pushing the numbers b
 
 Finally, after pushing all the elements from ``stack_b``, if necessary, we organize ``stack_a`` by rotating it until the smallest number is at the top. This ensures that all elements are sorted in ascending order, concluding the program.
 
+# Bonus ⭐
+For the bonus section, we were required to develop a program called "checker". Similar to the push_swap program, checker takes a list of integers as arguments and forms a stack with those numbers. Afterward, the program awaits instructions that will be provided on the standard input. Once all the operations are inputted, the program read line by line, employing the [get_next_line](https://github.com/marcelofassbinder/42_GET_NEXT_LINE) function, and proceeds to execute the operations on the stack.
+
+After performing the provided instructions, if ``stack a`` is sorted, and ``stack b`` is empty, the program displays ``OK`` followed by a new line. In any other scenario, the checker outputs ``KO`` followed by a new line. If an error occurs, the program follows the same behavior as push_swap, printing ``Error`` and a new line.
+
+# Grade  <p><img height="30px" src="https://img.shields.io/badge/-125%20%2F%20100-success" /></p>
+
+# Norminette 💂🏻
+At 42 School, we need to follow some strict rules when writing our code. These rules are described in the Norm and checked by the formidable `norminette`. Here are some of them:
+```
+- No for, do...while, switch, case, goto, ternary operators and variable-length arrays are allowed
+- Each function must be maximum 25 lines
+- One single variable declaration per line
+- You can’t declare more than 5 variables per function
+- You can't write more than 5 functions per file
+...
+```
+[Click here](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf) to review the complete Norm document.
+
