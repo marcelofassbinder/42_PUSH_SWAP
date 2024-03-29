@@ -1,5 +1,10 @@
-# 42_PUSH_SWAP 🔄
-Sorting data on stacks.
+<h1 align=center>
+ 42_PUSH_SWAP 🔄
+</h1>
+<div align=center>
+ Sorting data on stacks.
+</div>
+
 # About ✍
 Being the first Rank02 project of 42 Common Core, Push_swap is all about sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. 
 The goal is to write a program in C which calculates and displays on the standard output the list of operations between two stacks that sorts in ascending order the integers received as arguments.
